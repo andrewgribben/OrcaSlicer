@@ -9039,7 +9039,10 @@ void PrintConfigDef::init_sla_params()
 void PrintConfigDef::handle_legacy(t_config_option_key &opt_key, std::string &value)
 {
     //BBS: handle legacy options
-    if (opt_key == "curr_bed_type" && value == "SuperTack Plate") {
+    if (opt_key == "tree_support_wall_count" && value == "-1") {
+        // Bambu Studio uses -1 for automatic support walls; Orca uses 0.
+        value = "0";
+    } else if (opt_key == "curr_bed_type" && value == "SuperTack Plate") {
         value = "Supertack Plate";
     } else if (opt_key == "enable_wipe_tower") {
         opt_key = "enable_prime_tower";
