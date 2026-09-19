@@ -59,7 +59,7 @@ TEST_CASE("Painted filaments slice when the display palette is shorter than the 
     selector.set_facet(5, EnforcerBlockerType::Extruder2);
     REQUIRE(volume->mmu_segmentation_facets.set(selector));
     print.apply(model, config);
-    auto *object = print.objects().front();
+    PrintObject *object = print.objects_mutable().front();
     object->slice();
     const auto segmentation = multi_material_segmentation_by_painting(*object, [] {});
     REQUIRE_FALSE(segmentation.empty());
