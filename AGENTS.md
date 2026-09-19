@@ -96,3 +96,14 @@ See the [Localization guide](https://github.com/OrcaSlicer/OrcaSlicer_WIKI/blob/
 - `scripts/run_gettext.bat --full` (Windows) regenerates the template, merges every catalog and compiles the `.mo` files. It must exit 0.
 - Or check a single catalog with `msgfmt --check-format -o <out>.mo localization/i18n/<lang>/OrcaSlicer_<lang>.po`.
 - Fuzzy entries are not shown to users. If you correct one, clear its `fuzzy` flag, otherwise the fix never ships.
+
+## Learned User Preferences
+
+- Push OrcaSlicer work to the `andrewgribben/OrcaSlicer` GitHub fork (no upstream write access); open PRs from that fork to `OrcaSlicer/OrcaSlicer`.
+- Prefer native x86_64 Unraid Linux builds for packaging over Apple Silicon QEMU Docker builds when speed matters.
+
+## Learned Workspace Facts
+
+- Primary packaging target for this workstream is a Bambuddy slicer API Linux x86_64 sidecar (often the Unraid `orca-slicer-api` container).
+- Unraid OrcaSlicer checkout lives at `/mnt/user/data/Development/OrcaSlicer`.
+- Local Mac QEMU Docker builder for this work used container `orca-bambuddy-builder` and volume `orca-bambuddy-build`; prefer Unraid for full builds.
